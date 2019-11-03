@@ -46,7 +46,7 @@ class DuplicateCounter
         for (Entry<String, Integer> entry: dataCount.entrySet())
             newCount.write(entry.getKey() + ": " + entry.getValue()+"\n");
 
-        newCount.write(+wordCounter+" words in total.");
+        newCount.write(wordCounter+" words in total.");
         newCount.close();
 
     }

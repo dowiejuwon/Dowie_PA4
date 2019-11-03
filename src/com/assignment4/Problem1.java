@@ -39,8 +39,8 @@ class DuplicateRemover
 
             while(list.hasNext())
             {
-                String str=(String)list.next();
-                newText.write(str+"\n");
+                String s = (String)list.next();
+                newText.write(s + "\n");
             }
             newText.close();
 
@@ -54,7 +54,7 @@ class DuplicateRemover
             while(list.hasNext())
             {
                 String str=(String)list.next();
-                newText.write(str+"\n");
+                newText.write(str + "\n");
             }
             newText.close();
         }
