@@ -1,18 +1,18 @@
 package com.assignment4;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 class DuplicateCounter
 {
     int wordCounter;
-    private Map<String,Integer> dataCount;
+    static Map<String,Integer> dataCount;
     public DuplicateCounter()
     {
         this.dataCount = new HashMap<String,Integer>();
@@ -44,9 +44,9 @@ class DuplicateCounter
     {
         FileWriter newCount = new FileWriter(new File(outputFile));
         for (Entry<String, Integer> entry: dataCount.entrySet())
-            newCount.write(entry.getKey() + " " + entry.getValue()+"\n");
+            newCount.write(entry.getKey() + ": " + entry.getValue()+"\n");
 
-        newCount.write(+wordCounter+" words in total.\n");
+        newCount.write(+wordCounter+" words in total.");
         newCount.close();
 
     }
@@ -56,7 +56,7 @@ class Application2
 {
     public static void main(String[] args) throws IOException
     {
-        DuplicateCounter i =new DuplicateCounter();
+        DuplicateCounter i = new DuplicateCounter();
         i.count("problem2.txt");
         i.write("unique_word_counts.txt");
 

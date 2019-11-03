@@ -1,18 +1,17 @@
 package com.assignment4;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.Set;
 
-
 class DuplicateRemover
 {
-    private Set<String> uniqueWords;
+    static Set<String> uniqueWords;
     public void remove(String dataFile) throws FileNotFoundException
     {
         String word;
@@ -20,11 +19,10 @@ class DuplicateRemover
         Scanner scnr = new Scanner(new File(dataFile));
         while(scnr.hasNext())
         {
-            word=scnr.next();
+            word = scnr.next();
             uniqueWords.add(word);
         }
         scnr.close();
-
 
     }
 
@@ -37,11 +35,11 @@ class DuplicateRemover
         if(a.exists())
         {
             newText = new FileWriter(a,true);
-            Iterator itr=uniqueWords.iterator();
+            Iterator list = uniqueWords.iterator();
 
-            while(itr.hasNext())
+            while(list.hasNext())
             {
-                String str=(String)itr.next();
+                String str=(String)list.next();
                 newText.write(str+"\n");
             }
             newText.close();
@@ -51,11 +49,11 @@ class DuplicateRemover
         {
             a.createNewFile();
             newText = new FileWriter(a);
-            Iterator itr=uniqueWords.iterator();
+            Iterator list = uniqueWords.iterator();
 
-            while(itr.hasNext())
+            while(list.hasNext())
             {
-                String str=(String)itr.next();
+                String str=(String)list.next();
                 newText.write(str+"\n");
             }
             newText.close();
